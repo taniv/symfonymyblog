@@ -1,0 +1,64 @@
+********************************
+*                              *
+*  Symfony requirements check  *
+*                              *
+********************************
+
+* Configuration file used by PHP: /etc/php5/cli/php.ini
+
+** ATTENTION **
+*  The PHP CLI can use a different php.ini file
+*  than the one used with your web server.
+*  To be on the safe side, please also launch the requirements check
+*  from your web server using the web/config.php script.
+
+** Mandatory requirements **
+
+ OK       PHP version must be at least 5.3.3 (5.5.9-1ubuntu4.4 installed)
+ OK       PHP version must not be 5.3.16 as Symfony won't work properly with it
+ OK       Vendor libraries must be installed
+ ERROR    app/cache/ or var/cache/ directory must be writable
+          Change the permissions of either "app/cache/" or  "var/cache/" directory so that the web server can write into it.
+
+ ERROR    app/logs/ or var/logs/ directory must be writable
+          Change the permissions of either "app/logs/" or  "var/logs/" directory so that the web server can write into it.
+
+ ERROR    date.timezone setting must be set
+          Set the "date.timezone" setting in php.ini* (like Europe/Paris).
+
+ OK       Configured default timezone "Antarctica/Macquarie" must be supported by your installation of PHP
+ OK       json_encode() must be available
+ OK       session_start() must be available
+ OK       ctype_alpha() must be available
+ OK       token_get_all() must be available
+ OK       simplexml_import_dom() must be available
+ OK       detect_unicode must be disabled in php.ini
+ OK       PCRE extension must be available
+
+** Optional recommendations **
+
+ OK       Requirements file should be up-to-date
+ OK       You should use at least PHP 5.3.4 due to PHP bug #52083 in earlier versions
+ OK       When using annotations you should have at least PHP 5.3.8 due to PHP bug #55156
+ OK       You should not use PHP 5.4.0 due to the PHP bug #61453
+ OK       When using the logout handler from the Symfony Security Component, you should have at least PHP 5.4.11 due to PHP bug #63379 (as a workaround, you can also set invalidate_session to false in the security logout handler configuration)
+ OK       You should use PHP 5.3.18+ or PHP 5.4.8+ to always get nice error messages for fatal errors in the development environment due to PHP bug #61767/#60909
+ OK       PCRE extension should be at least version 8.0 (8.31 installed)
+ OK       PHP-XML module should be installed
+ OK       mb_strlen() should be available
+ OK       iconv() should be available
+ OK       utf8_decode() should be available
+ OK       filter_var() should be available
+ OK       posix_isatty() should be available
+ WARNING  intl extension should be available
+          Install and enable the intl extension (used for validators).
+
+ OK       a PHP accelerator should be installed
+ OK       short_open_tag should be disabled in php.ini
+ OK       magic_quotes_gpc should be disabled in php.ini
+ OK       register_globals should be disabled in php.ini
+ OK       session.auto_start should be disabled in php.ini
+ OK       PDO should be installed
+ WARNING  PDO should have some drivers installed (currently available: none)
+          Install PDO drivers (mandatory for Doctrine).
+
